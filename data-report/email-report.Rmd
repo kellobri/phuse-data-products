@@ -1,0 +1,60 @@
+---
+title: "Email Report - Iris Data"
+output: html_document
+rmd_output_metadata:
+    rsc_email_subject: "CSV Data Report"
+    rsc_email_attachments:
+      - "df.csv"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## All the latest and greatest Iris News
+
+```{r echo=FALSE, message=FALSE}
+library(ggplot2)
+
+irisinfo <- ggplot(iris, aes_string(x = "Sepal.Length", fill = "Species")) +
+  geom_histogram(data = iris[,-5], fill = "grey", alpha = .5) +
+  geom_histogram(colour = "black") +
+  facet_wrap(~ Species) +
+  guides(fill = FALSE) +
+  theme_bw()
+
+irisinfo
+```
+
+
+```{r include=FALSE}
+library(htmltools)
+ggplot2::ggsave(
+    "plot.png",
+    plot = irisinfo,
+    device = "png",
+    width = 5,
+    height = 5,
+    dpi = "screen"
+)
+# Encode the PNG image as base64.
+plot_base64 <- base64enc::base64encode("plot.png")
+```
+
+### Report email code 
+
+```{r}
+library(glue)
+report_name <- Sys.getenv("RSC_REPORT_NAME")
+report_url <- Sys.getenv("RSC_REPORT_URL")
+message <- glue(paste(h1("data plot"),
+                 # Use the filename "plot.png" as the Content ID by using "cid:"
+                 # in the image tag's "src" attribute:
+                 p(img(src = "cid:plot.png")),
+                 '--',
+                 p('This {report_name} document is available at {report_url}'),
+                 sep = "\n"))
+images <- list(plot.png = plot_base64)
+rmarkdown::output_metadata$set(rsc_email_body_html = message)
+rmarkdown::output_metadata$set(rsc_email_images = images)
+```

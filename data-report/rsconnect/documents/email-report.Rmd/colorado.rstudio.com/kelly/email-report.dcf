@@ -1,0 +1,12 @@
+name: email-report
+title: email-report
+username: kelly
+account: kelly
+server: colorado.rstudio.com
+hostUrl: http://colorado.rstudio.com:3939/__api__
+appId: 2161
+bundleId: 25124
+url: http://colorado.rstudio.com:3939/content/2161/
+when: 1551066801.50268
+asMultiple: FALSE
+asStatic: FALSE
