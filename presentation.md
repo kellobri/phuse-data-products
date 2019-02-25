@@ -2,6 +2,7 @@ The R User's Guide to Result Delivery Through Data Products
 ========================================================
 author: Kelly O'Briant
 date: PhUSE 2019
+font-family: 'Helvetica'
 autosize: true
 
 The R For Data Science Workflow
@@ -78,7 +79,7 @@ Should all my spreadsheets be Shiny apps?
 ![data product matrix](presentation-figure/product-matrix.png)
 
 
-Crucial Weekly Data Update
+Send a crucial weekly data update
 ========================================================
 
 
@@ -99,14 +100,14 @@ irisinfo <- ggplot(iris, aes_string(x = "Sepal.Length", fill = "Species")) +
 ![plot of chunk unnamed-chunk-2](presentation-figure/unnamed-chunk-2-1.png)
 
 
-That was a brief introduction to data products in R
+Interested in learning more?
 ========================================================
 
 # --- #
 
-## Resources for learning more:
+## Resources:
 
-- RStudio Community - [rstd.io/community](http://rstd.io/community)
+- Community - [rstd.io/community](http://rstd.io/community)
 - Twitter - [rstd.io/twitter](http://rstd.io/twitter)
 - Webinars - [resources.rstudio.com](http://resources.rstudio.com)
 - Solutions - [solutions.rstudio.com](https://solutions.rstudio.com/)
@@ -115,11 +116,12 @@ That was a brief introduction to data products in R
 
 ![Conference Talks](presentation-figure/conf-talks.png)
 
-## RStudio Conference 2019 Talks
+## RStudio Conference 2019
 
 This data product is reproducible!
 ========================================================
 
 # --- #
 
-# All the code for this presentation can be found here:
+# GitHub: [bit.ly/phuse-2019](http://bit.ly/phuse-2019)
+
